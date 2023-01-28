@@ -18,12 +18,26 @@ export const reducer = (state, action) => {
         ...state,
         [action.payload.name]: action.payload.value,
       };
+
     case actionTypes.TOGGLE:
       return {
         ...state,
         term: !state.term,
       };
+
+    case actionTypes.INCREMENT:
+      return {
+        ...state,
+        quantity: state.quantity + action.payload.value,
+      };
+    case actionTypes.DECREMENT:
+      return {
+        ...state,
+        quantity: state.quantity - action.payload.value,
+      };
+
     default:
-      return state;
+      break;
   }
+  return;
 };
